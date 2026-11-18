@@ -1,0 +1,72 @@
+
+# PureGym Apple Wallet
+
+> A free, iPhone-only method of adding a PureGym membership QR code to Apple Wallet using two Apple Shortcuts and WalletWallet. No computer, Mac, paid app or manually generated QR code is required.
+
+## Project
+
+Repository: https://github.com/newmanfr/PureGym-Apple-Wallet
+
+This project allows PureGym members to add their membership QR code to Apple Wallet and automatically refresh the pass using Apple's Shortcuts app.
+
+## Features
+
+- Add a PureGym membership pass to Apple Wallet.
+- Uses two downloadable Apple Shortcuts.
+- Automatically retrieves and refreshes the PureGym QR code.
+- Daily automatic refresh through Shortcuts automation.
+- Runs directly on an iPhone.
+- No PC, Mac or separate automation application required.
+- Uses WalletWallet to generate and update the Wallet pass.
+- Free setup, subject to WalletWallet's current free-tier limits.
+
+## Installation
+
+Read the complete installation guide:
+
+https://github.com/newmanfr/PureGym-Apple-Wallet
+
+## Apple Shortcuts
+
+Generate PureGym:
+https://www.icloud.com/shortcuts/8c6c3c72e21b4379abdf44127b9a86c0
+
+Start:
+https://www.icloud.com/shortcuts/dde2a221d74e4205a3da90595d94522f
+
+## Requirements
+
+- iPhone with Apple's Shortcuts app.
+- PureGym membership and login credentials.
+- WalletWallet account and API key.
+- Apple Wallet.
+
+## Frequently Asked Questions
+
+### Can I add PureGym to Apple Wallet?
+Yes. This project creates a PureGym membership pass in Apple Wallet.
+
+### Does it work without a computer?
+Yes. Setup and normal operation can be completed on an iPhone.
+
+### Does the QR code update automatically?
+Yes. A daily Shortcuts automation refreshes the Wallet pass.
+
+### Is it free?
+The project is free to set up, subject to WalletWallet's current free-tier limits.
+
+### Do I need Scriptable?
+No.
+
+### Do I need a Mac?
+No.
+
+### Do I need to jailbreak my iPhone?
+No.
+
+### Is this an official PureGym application?
+No. This is an independent community project and is not affiliated with PureGym.
+
+## Author
+
+GitHub: https://github.com/newmanfr
