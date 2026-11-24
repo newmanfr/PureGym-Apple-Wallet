@@ -19,9 +19,12 @@
 Create a Wallet Pass on iPhone
 **
 
+Quick disclaimer: Right now only the UK 🇬🇧 is confirmed to work. If your region works with this please let me know. 
+
 1. WalletWallet: https://www.walletwallet.dev
 2. Wallet Shortcut: https://www.icloud.com/shortcuts/8c6c3c72e21b4379abdf44127b9a86c0
 3. Start Shortcut: https://www.icloud.com/shortcuts/dde2a221d74e4205a3da90595d94522f
+
 
 Step 1 – Install the shortcuts
 
