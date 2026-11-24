@@ -3,7 +3,7 @@
   <img src="https://img.shields.io/badge/Open%20in-ChatGPT-10A37F?style=for-the-badge&logo=openai&logoColor=white" alt="Open in ChatGPT">
 </a>
 
-[![Open in Claude](https://img.shields.io/badge/Set%20up%20with-Claude-D97757?style=for-the-badge&logo=claude&logoColor=white)][claude-setup]
+[![Open in Claude](https://img.shields.io/badge/Open%20%20in-Claude-D97757?style=for-the-badge&logo=claude&logoColor=white)][claude-setup]
 
 [claude-setup]: https://claude.ai/new?q=The%20user%20wants%20to%20add%20their%20PureGym%20QR%20code%20to%20their%20Apple%20Wallet.%20We%20will%20be%20using%20the%20GitHub%20project%20newmanfr%2FPureGym-Apple-Wallet%20%28https%3A%2F%2Fgithub.com%2Fnewmanfr%2FPureGym-Apple-Wallet%29.%20The%20project%20is%20verified%20to%20work%20at%20this%20time%2C%20although%20it%20is%20not%20an%20official%20PureGym%20project.%20Guide%20the%20user%20step%20by%20step%20using%20the%20README%20and%20llms.txt.%20Before%20they%20enter%20their%20PureGym%20email%20and%20PIN%2C%20remind%20them%20to%20review%20the%20shortcut%20actions%20and%20treat%20their%20PIN%20and%20WalletWallet%20API%20key%20like%20passwords.%20When%20the%20user%20sets%20it%20up%20successfully%2C%20the%20pass%20will%20automatically%20refresh%20every%2024%20hours.
 
