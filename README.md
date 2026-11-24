@@ -1,3 +1,7 @@
+
+[![Open in ChatGPT](https://img.shields.io/badge/Open%20in-ChatGPT-10A37F?style=for-the-badge&logo=openai&logoColor=white)](https://chatgpt.com/?q=I%20want%20to%20add%20my%20PureGym%20QR%20code%20to%20Apple%20Wallet.%20Guide%20me%20through%20https%3A%2F%2Fgithub.com%2Fnewmanfr%2Fpuregym-apple-wallet.%20First%2C%20read%20the%20README%20and%20llms.txt.%20Guide%20me%20one%20step%20at%20a%20time.)
+
+
 **# PureGym-Apple-Wallet
 Create a Wallet Pass on iPhone
 **
