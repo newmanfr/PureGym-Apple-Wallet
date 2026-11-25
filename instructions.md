@@ -15,18 +15,13 @@
 [grok-badge]: https://img.shields.io/badge/Open%20%20in-Grok-000000?style=for-the-badge&logo=x&logoColor=white
 [grok-setup]: https://grok.com/?q=Help%20me%20add%20my%20PureGym%20QR%20code%20to%20Apple%20Wallet%20using%20the%20unofficial%20community%20project%20newmanfr/puregym-apple-wallet%20%28https%3A//github.com/newmanfr/PureGym-Apple-Wallet%29.%20The%20project%20is%20verified%20to%20work%20but%20is%20not%20an%20official%20PureGym%20project.%20Guide%20me%20step%20by%20step%20using%20the%20README%20and%20llms.txt%20from%20the%20repo.%20Wait%20for%20my%20confirmation%20after%20each%20step%20before%20continuing.%20Once%20set%20up%20successfully%2C%20the%20pass%20will%20automatically%20refresh%20every%2024%20hours.
 
-**# PureGym-Apple-Wallet
-Create a Wallet Pass on iPhone
-**
 
-Quick disclaimer: Right now only the UK 🇬🇧 is confirmed to work. If your region works with this please let me know. 
+[![Join Discord](https://img.shields.io/badge/Join%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://dsc.gg/newmanserver)
 
 1. WalletWallet: https://www.walletwallet.dev
 2. Wallet Shortcut: https://www.icloud.com/shortcuts/8c6c3c72e21b4379abdf44127b9a86c0
 3. Start Shortcut: https://www.icloud.com/shortcuts/dde2a221d74e4205a3da90595d94522f
 
-
-[![Join Discord](https://img.shields.io/badge/Join%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://dsc.gg/newmanserver)
 
 
 Step 1 – Install the shortcuts
@@ -131,8 +126,6 @@ Your scheduled automation will run the shortcut to refresh the pass.
 
 ⸻
 
-
-* Check the shortcut actions before entering your login details.
 * This is an unofficial community project and is not affiliated with or endorsed by PureGym.
 * WalletWallet pricing and API limits may change. Check its website for current terms.
 
