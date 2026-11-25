@@ -54,7 +54,7 @@ Step 3 – Configure the Generate PureGym Shortcut
 5. Paste your API key.
 6. Enter your PureGym email address.
 7. Enter your PureGym PIN.
-8. Leave Pass Number blank for now.
+8. Leave Pass Number blank until Step 5.
 
 
 Make sure your details are entered correctly.
