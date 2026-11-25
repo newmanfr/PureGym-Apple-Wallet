@@ -4,7 +4,7 @@
 [![Open in Grok][grok-badge]][grok-setup]
 
 <a href="https://github.com/newmanfr/PureGym-Apple-Wallet">
-  <img src="assets/puregym.png" alt="PureGym" height="150"><img src="assets/apple-wallet.png" alt="Apple Wallet" height="150">
+  <img src="assets/puregym.png" alt="PureGym" height="150"><img src="assets/awallet.png" alt="Apple Wallet" height="150">
 </a>
 
 [chatgpt-badge]: https://img.shields.io/badge/Open%20%20in-ChatGPT-10A37F?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyBmaWxsPSJ3aGl0ZSIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0yMi4yODEgOS44MjFhNS45ODUgNS45ODUgMCAwIDAtLjUxNi00LjkxIDYuMDQ2IDYuMDQ2IDAgMCAwLTYuNTEtMi45QTYuMDY1IDYuMDY1IDAgMCAwIDQuOTgyLjQxOCA1Ljk4MiA1Ljk4MiAwIDAgMCAzLjk5OCA2Ljk0IDYuMDQ2IDYuMDQ2IDAgMCAwIDEuODkgMTMuMjNhNS45ODUgNS45ODUgMCAwIDAgLjUxNiA0LjkxIDYuMDQ2IDYuMDQ2IDAgMCAwIDYuNTEgMi45IDYuMDY1IDYuMDY1IDAgMCAwIDQuOTgyIDIuNDA4IDUuOTgyIDUuOTgyIDAgMCAwIDUuNzA2LTQuMjE2IDYuMDQ2IDYuMDQ2IDAgMCAwIDMuOTk4LTYuMjlhNS45ODUgNS45ODUgMCAwIDAtMS4zMi00LjY2M3ptLTkuMDIyIDEyLjYwOGExLjQ4IDEuNDggMCAwIDEtMi44NjQtLjAyN2wtLjAwMy0zLjU3Ni0zLjA5NyAxLjc4OGExLjQ4IDEuNDggMCAwIDEtMS40OC0yLjU2NGwzLjA5Ny0xLjc4OC0zLjA5Ny0xLjc4OGExLjQ4IDEuNDggMCAwIDEgMS40OC0yLjU2NGwzLjA5NyAxLjc4OFY2LjM1NWExLjQ4IDEuNDggMCAwIDEgMi45NiAwdjMuNTc2bDMuMDk3LTEuNzg4YTEuNDggMS40OCAwIDAgMSAxLjQ4IDIuNTY0bC0zLjA5NyAxLjc4OCAzLjA5NyAxLjc4OGExLjQ4IDEuNDggMCAwIDEtMS40OCAyLjU2NGwtMy4wOTctMS43ODh2My41NzZ6Ii8+PC9zdmc+
