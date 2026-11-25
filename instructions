@@ -1,0 +1,575 @@
+# PureGym Apple Wallet Troubleshooting
+
+Having trouble getting your PureGym membership into Apple Wallet? This page covers common installation, setup, authentication, QR code, WalletWallet, Apple Shortcuts and GitHub issues.
+
+**Project:** [PureGym Apple Wallet](https://github.com/newmanfr/PureGym-Apple-Wallet)
+
+**Join the community:** [Discord](https://dsc.gg/newmanserver)
+
+## Contents
+
+- Before you begin
+- Installation problems
+- Understanding the two shortcuts
+- PureGym login and authentication errors
+- QR code generation problems
+- WalletWallet API problems
+- Apple Wallet problems
+- Automatic refresh problems
+- GitHub and README problems
+- Security and privacy
+- Frequently asked questions
+- Reporting a problem
+
+---
+
+## 1. Before you begin
+
+This project uses Apple Shortcuts to retrieve your PureGym membership QR code and update an Apple Wallet pass.
+
+The setup requires:
+
+- An iPhone with Apple Shortcuts.
+- A working PureGym membership and login.
+- The `Start` shortcut.
+- The `Generate PureGym` shortcut.
+- A WalletWallet account and API key.
+- A WalletWallet pass number.
+
+The project is designed to be used from an iPhone without needing a computer or a personally hosted server.
+
+### How the system works
+
+The process is split into several parts:
+
+1. The `Start` shortcut creates your initial Apple Wallet pass.
+2. The `Generate PureGym` shortcut authenticates with PureGym.
+3. PureGym returns your current membership QR code.
+4. The shortcut sends that QR code to WalletWallet.
+5. WalletWallet updates the barcode on your existing pass.
+6. An iPhone automation can run the refresh shortcut periodically.
+
+The QR code refreshes approximately every 24 hours when the automation is configured correctly.
+
+---
+
+## 2. Installation problems
+
+### The shortcut link does not open
+
+If an iCloud Shortcut link does not open correctly:
+
+1. Open the link in Safari on your iPhone.
+2. Allow it to open Apple Shortcuts.
+3. Review the shortcut.
+4. Select **Add Shortcut**.
+
+If the link opens a webpage instead, make sure you are opening the actual iCloud Shortcut link rather than a GitHub file preview.
+
+### The shortcut says it cannot be added
+
+Check that:
+
+- You are using an iPhone or iPad with Apple Shortcuts.
+- The shortcut link is valid.
+- You are signed into iCloud.
+- Your iOS version supports the actions used by the shortcut.
+
+If Apple reports that the shortcut is unavailable, the link may have been removed or replaced. Check the project's README for the latest installation links.
+
+### The shortcut asks for permission
+
+Apple Shortcuts may ask permission to:
+
+- Connect to websites.
+- Send network requests.
+- Access information supplied by the shortcut.
+- Open or add a Wallet pass.
+
+Review the permissions and allow the actions required for the shortcut to work.
+
+Do not allow permissions for unrelated actions that you do not recognise.
+
+### The shortcut is missing actions
+
+If a shortcut appears incomplete:
+
+1. Remove the incomplete copy.
+2. Return to the project README.
+3. Install the latest shortcut again.
+4. Check that all actions are present before running it.
+
+Do not manually delete actions unless you understand what they do.
+
+---
+
+## 3. Understanding the two shortcuts
+
+The project uses two separate shortcuts.
+
+### Start
+
+The `Start` shortcut is used to create the initial Wallet pass.
+
+Run this first when setting up the project for the first time.
+
+Once the pass has been created, you should not need to create another pass every time your QR code changes.
+
+### Generate PureGym
+
+The `Generate PureGym` shortcut refreshes the QR code on your existing Wallet pass.
+
+It is not intended to create a new pass every time it runs.
+
+The shortcut uses four configuration values:
+
+| Variable | Purpose |
+|---|---|
+| Email | Your PureGym login email |
+| PIN | Your PureGym login password or PIN |
+| WalletWallet Pass Number | Identifies the pass to update |
+| WalletWallet API key | Authorises the WalletWallet update request |
+
+Make sure each value is entered in the correct Text action.
+
+### Why the pass number matters
+
+The WalletWallet pass number identifies the pass that should receive the updated QR code.
+
+If the pass number is missing or incorrect, the shortcut may generate a valid PureGym QR code but fail when attempting to update WalletWallet.
+
+The pass number should be copied from the WalletWallet pass URL or the value provided during your initial pass setup.
+
+Do not confuse the pass number with your PureGym membership number.
+
+---
+
+## 4. PureGym login and authentication errors
+
+The shortcut uses PureGym's authentication endpoint:
+
+`https://auth.puregym.com/connect/token`
+
+It requests an access token using the login details supplied in the shortcut.
+
+### Invalid username or password
+
+If authentication fails:
+
+1. Check that your email is correct.
+2. Check that your password or PIN is correct.
+3. Try logging into PureGym through the official app or website.
+4. Check whether your account requires a password reset.
+5. Run the shortcut again.
+
+If you recently changed your PureGym password, update the Text action in the shortcut.
+
+### The shortcut returns an authentication error
+
+A failed authentication request may indicate:
+
+- Incorrect login details.
+- A temporary PureGym authentication issue.
+- A change to PureGym's authentication requirements.
+- A request format that is no longer accepted.
+
+If your login works in the official PureGym app but the shortcut fails, the problem may be with the API request rather than your account.
+
+### The access token is missing
+
+The shortcut expects the authentication response to contain an `access_token`.
+
+If the response does not contain that value, the next API request cannot authenticate.
+
+Check the authentication response before continuing to the QR code request.
+
+Do not assume that a successful HTTP request always means the expected token was returned.
+
+---
+
+## 5. QR code generation problems
+
+The shortcut requests the membership QR code from:
+
+`https://capi.puregym.com/api/v2/member/qrcode`
+
+The request uses the access token returned by the authentication step.
+
+The shortcut expects a response containing:
+
+`QrCode`
+
+### The QR code is blank
+
+If the shortcut returns an empty QR code:
+
+- Check that the access token was retrieved correctly.
+- Check that the QR code request completed successfully.
+- Check that the response contains the `QrCode` dictionary value.
+- Check that the value is not being overwritten by another variable.
+
+The QR code should be treated as text data. Do not manually add spaces, line breaks or other characters to it.
+
+### The QR code request fails
+
+If the authentication request succeeds but the QR code request fails, possible causes include:
+
+- The access token has expired.
+- PureGym has changed the endpoint.
+- PureGym has changed the response format.
+- The account is temporarily unable to retrieve the QR code.
+- The request is missing the correct Bearer token.
+
+If PureGym changes its API, the shortcut may need to be updated.
+
+### The QR code changes but Wallet does not
+
+This usually means the PureGym part of the shortcut worked, but the WalletWallet update did not.
+
+Check the WalletWallet section below.
+
+---
+
+## 6. WalletWallet API problems
+
+WalletWallet is used to create and update the Apple Wallet pass.
+
+The shortcut sends an update request to:
+
+`https://api.walletwallet.dev/api/passes/[WalletWallet Pass Number]`
+
+The request uses your WalletWallet API key as a Bearer token.
+
+The update includes the PureGym QR code, barcode format and pass title.
+
+### Invalid API key
+
+If WalletWallet rejects the request:
+
+1. Check that the API key is copied correctly.
+2. Make sure there are no extra spaces.
+3. Confirm that the key is still valid.
+4. Check that the key is being sent as a Bearer token.
+5. Confirm that the shortcut is using the correct API key Text action.
+
+Do not share your API key in a public GitHub issue or Discord message.
+
+### Invalid pass number
+
+If WalletWallet cannot find the pass:
+
+- Check the pass number.
+- Make sure you copied the correct value from WalletWallet.
+- Make sure the number has not been changed or truncated.
+- Confirm that the pass still exists in your WalletWallet account.
+
+The pass number is not the same as the API key.
+
+### The pass updates but the QR code does not
+
+Check the JSON body sent to WalletWallet.
+
+The barcode value should be the QR code returned by PureGym.
+
+The barcode format should be `QR`.
+
+The pass title should be `PureGym`.
+
+If the shortcut sends the wrong variable, WalletWallet may update the pass with an incorrect or empty barcode.
+
+### WalletWallet reports that a title or field is required
+
+If you receive an error similar to:
+
+`At least one of title, primaryFields, or logoText is required`
+
+the pass update is missing required display information.
+
+Make sure the request includes a valid title such as:
+
+`PureGym`
+
+If the API has changed its validation rules, check the current WalletWallet documentation.
+
+### WalletWallet updates are delayed
+
+A successful API response does not necessarily mean the pass will visibly change immediately.
+
+If the pass appears unchanged:
+
+1. Wait briefly.
+2. Open Wallet and check the pass again.
+3. Confirm the update request used the correct pass number.
+4. Check whether your WalletWallet plan supports the update method being used.
+
+WalletWallet's available features and API limits may change over time.
+
+---
+
+## 7. Apple Wallet problems
+
+### The pass will not add to Apple Wallet
+
+If the pass is generated but does not open in Wallet:
+
+- Check that the pass was downloaded correctly.
+- Make sure the file is a valid Apple Wallet pass.
+- Try opening the pass from Safari or the Files app.
+- Check that the pass was generated by the intended shortcut.
+
+A pass file normally uses the `.pkpass` extension.
+
+### The pass appears but has no barcode
+
+Check that the pass contains a barcode and that the barcode value was supplied correctly.
+
+If the pass was created before the QR code was retrieved, run `Generate PureGym` to update it.
+
+### The pass is duplicated
+
+If you accidentally run `Start` multiple times, you may create multiple passes.
+
+Remove the unwanted pass from Apple Wallet and keep the pass whose WalletWallet pass number is configured in your refresh shortcut.
+
+Do not create a new pass every time you want to refresh the QR code.
+
+### The pass displays an old QR code
+
+Run `Generate PureGym` manually.
+
+If the QR code updates successfully, check your automation settings.
+
+If it does not update, check the PureGym authentication and WalletWallet request separately.
+
+---
+
+## 8. Automatic refresh problems
+
+The project can use an iPhone automation to run `Generate PureGym` approximately every 24 hours.
+
+### The automation does not run
+
+Open Shortcuts and check:
+
+1. Go to **Automation**.
+2. Open the PureGym automation.
+3. Confirm that it is enabled.
+4. Confirm that it runs the correct shortcut.
+5. Check whether the automation requires confirmation.
+
+The automation should run `Generate PureGym`, not `Start`.
+
+### The automation runs but the pass does not update
+
+If the automation runs successfully but the pass remains unchanged:
+
+- Check the WalletWallet API key.
+- Check the pass number.
+- Check the PureGym login details.
+- Run the shortcut manually to see whether it produces an error.
+
+An automation can run without successfully completing every action inside the shortcut.
+
+### The QR code is not refreshed every day
+
+The refresh depends on the automation being enabled and the shortcut completing successfully.
+
+If the iPhone is unavailable, the automation is disabled or an API request fails, the pass may not update on schedule.
+
+### Should I run the shortcut manually?
+
+Yes. Running `Generate PureGym` manually is a useful way to test whether the problem is with the shortcut itself or the automation.
+
+If manual refresh works but automatic refresh does not, focus on the automation settings.
+
+---
+
+## 9. GitHub and README problems
+
+### I accidentally created a file called `assets`
+
+GitHub treats a file named `assets` differently from a folder named `assets`.
+
+If you created a file by using **Add file → Create new file** and typed only:
+
+`assets`
+
+you created a file, not a folder.
+
+To create a folder, add a file using a path such as:
+
+`assets/.gitkeep`
+
+GitHub does not track empty folders, so a folder must contain at least one file to appear in the repository.
+
+### I renamed the file but it still will not delete
+
+Renaming a file is not the same as deleting it.
+
+If you renamed `assets` to `assets.txt`, the file still exists under its new name.
+
+To delete it:
+
+1. Open the file.
+2. Select **Delete file**.
+3. Commit the deletion to the branch where the file exists.
+
+If GitHub refuses to delete it, check that:
+
+- You are on the correct branch.
+- You have permission to edit the repository.
+- The branch is not protected.
+- GitHub is not showing a temporary error.
+
+### The Delete file button is missing
+
+Try opening the file directly and looking for the delete option in the file menu.
+
+If the web interface continues to fail, use GitHub Desktop or a local Git checkout to remove the file.
+
+For example, if the file is named `assets.txt`:
+
+```bash
+git rm assets.txt
+git commit -m "Remove accidental assets file"
+git push
+```
+
+If the file is still named `assets`:
+
+```bash
+git rm assets
+git commit -m "Remove accidental assets file"
+git push
+```
+
+Only run the command for the actual filename.
+
+### How do I create the assets folder correctly?
+
+Create the folder by adding a file inside it.
+
+For example:
+
+`assets/puregym.png`
+
+and:
+
+`assets/apple-wallet.png`
+
+You can also create `assets/.gitkeep` first, then upload the two PNG files into the folder.
+
+### How do I display both logos in the README?
+
+Once the files exist in the `assets` folder, use:
+
+```html
+<a href="https://github.com/newmanfr/PureGym-Apple-Wallet">
+  <img src="assets/puregym.png" alt="PureGym" height="50">
+  <img src="assets/apple-wallet.png" alt="Apple Wallet" height="50">
+</a>
+```
+
+Both logos will be clickable and will link to the project.
+
+### The logos do not appear
+
+Check that:
+
+- The files are committed to the repository.
+- The filenames match exactly.
+- The folder is named `assets`.
+- The image extensions are `.png`.
+- The README is using the correct relative path.
+
+GitHub filenames are case-sensitive.
+
+For example, `PureGym.png` and `puregym.png` are different filenames.
+
+---
+
+## 10. Security and privacy
+
+This project uses your PureGym login details and WalletWallet API key.
+
+Keep these values private.
+
+Do not:
+
+- Upload your PureGym password or PIN to GitHub.
+- Commit your WalletWallet API key to a public repository.
+- Share screenshots showing your credentials.
+- Post your complete QR code in public.
+- Share your access token in a support request.
+
+If you accidentally publish an API key or password, revoke or change it as soon as possible.
+
+Removing a secret from a GitHub file does not necessarily remove it from the repository's history.
+
+---
+
+## 11. Frequently asked questions
+
+### Do I need a computer?
+
+No. The project is designed to be set up and used from an iPhone.
+
+### Do I need to host my own server?
+
+No personal server is required for the workflow described in this project. WalletWallet handles the pass service.
+
+### Does the QR code refresh automatically?
+
+It can refresh automatically when the iPhone automation is enabled and the shortcut completes successfully.
+
+### Do I need to create a new pass every day?
+
+No. `Start` creates the initial pass. `Generate PureGym` updates the existing pass.
+
+### Why do I need a WalletWallet pass number?
+
+It identifies which WalletWallet pass should receive the updated QR code.
+
+### Why does the shortcut use an API key?
+
+The API key authorises the shortcut to update your WalletWallet pass.
+
+### Can PureGym break the shortcut?
+
+Yes. If PureGym changes its authentication process, API endpoints or QR code response format, the shortcut may need to be updated.
+
+### Can WalletWallet break the shortcut?
+
+Yes. Changes to WalletWallet's API, request format or account restrictions may require changes to the shortcut.
+
+### Is this an official PureGym or Apple project?
+
+No. This is a community project that uses the services and APIs required to create and refresh a membership pass.
+
+---
+
+## 12. Reporting a problem
+
+If you still cannot get the project working, report the issue with the following information:
+
+- Which shortcut you were running.
+- Which action failed.
+- The exact error message.
+- Whether the `Start` shortcut worked.
+- Whether the QR code was retrieved successfully.
+- Whether WalletWallet received the update request.
+- Whether manual refresh works.
+- Whether automatic refresh works.
+
+Do not include your password, PIN, API key, access token or full QR code.
+
+If the issue is related to a change in PureGym or WalletWallet, include the date when the problem first appeared.
+
+---
+
+## Project links
+
+- [GitHub repository](https://github.com/newmanfr/PureGym-Apple-Wallet)
+- [Join the Discord community](https://dsc.gg/newmanserver)
+
+If you find a solution to a problem that is not listed here, consider contributing it so other users can troubleshoot the same issue.
