@@ -67,6 +67,149 @@ No.
 ### Is this an official PureGym application?
 No. This is an independent community project and is not affiliated with PureGym.
 
+Generate PureGym Shortcut
+
+The Generate PureGym shortcut is an Apple Shortcuts workflow included in the PureGym Apple Wallet project. It automatically authenticates with PureGym, retrieves the user’s membership QR code and sends it to WalletWallet to update their Apple Wallet pass.
+
+The shortcut consists of the following 11 actions, in this exact order:
+
+Action 1: Text
+
+Value: Email
+
+Stores the user’s PureGym account email address. This is used as the username during authentication.
+
+Action 2: Text
+
+Value: PIN
+
+Stores the user’s PureGym account PIN/password. This is used during authentication.
+
+Action 3: Text
+
+Value: WalletWallet Pass Number
+
+Stores the identifier of the WalletWallet pass that will be updated.
+
+Action 4: Text
+
+Value: WalletWallet API key
+
+Stores the API key required to authenticate requests to WalletWallet.
+
+Action 5: Get Contents of URL
+
+URL: https://auth.puregym.com/connect/token
+
+Method: POST
+
+Headers:
+
+* Authorization: Basic authentication.
+* Content-Type: application/x-www-form-urlencoded
+
+Form body:
+
+* grant_type: password
+* username: Email variable
+* password: PIN variable
+* scope: pgcapi offline_access (visible portion)
+
+Sends the user’s PureGym login credentials to the PureGym authentication server and requests an access token.
+
+Action 6: Get Dictionary from Input
+
+Takes the response from Action 5 and converts it into a Dictionary.
+
+This makes the authentication response accessible as individual key-value pairs.
+
+Action 7: Get Value for Key
+
+Key: access_token
+
+Extracts the access token from the authentication Dictionary.
+
+The resulting access token is used to authenticate the next PureGym API request.
+
+Action 8: Get Contents of URL
+
+URL: https://capi.puregym.com/api/v2/member/qrcode
+
+Method: GET
+
+Header:
+
+* Authorization: Bearer [access_token from Action 7]
+
+Sends an authenticated request to PureGym’s member QR code endpoint.
+
+This retrieves the QR code associated with the authenticated user’s membership.
+
+Action 9: Get Dictionary from Input
+
+Takes the response from Action 8 and converts it into a Dictionary.
+
+This allows the shortcut to extract the QR code from the response.
+
+Action 10: Get Value for Key
+
+Key: QrCode
+
+Extracts the user’s actual membership QR code from the Dictionary produced by Action 9.
+
+This is the barcode data that will be transferred to WalletWallet.
+
+Action 11: Get Contents of URL
+
+URL: https://api.walletwallet.dev/api/passes/{WalletWallet Pass Number}
+
+Method: PUT
+
+The pass number is supplied by Action 3.
+
+Headers:
+
+* Authorization: Bearer [WalletWallet API key from Action 4]
+* Content-Type: application/json
+
+Request body: JSON
+
+Visible fields:
+
+* barcodeV...: Dictionary Value from Action 10 (the PureGym QR code).
+* barcodeF...: QR
+* title: PureGym
+
+Sends the retrieved PureGym QR code and pass configuration to WalletWallet, updating the specified pass.
+
+The complete names of the first two JSON fields are not readable in the supplied screenshots and should not be assumed.
+
+⸻
+
+Shortcut Summary
+
+The Generate PureGym shortcut performs the following sequence:
+
+1. Stores four required configuration values.
+2. Authenticates the user with PureGym.
+3. Parses the authentication response.
+4. Extracts the PureGym access token.
+5. Requests the user’s membership QR code.
+6. Parses the QR code response.
+7. Extracts the actual QR code.
+8. Authenticates with WalletWallet.
+9. Updates the specified WalletWallet pass with the PureGym QR code.
+
+AI Identification Instructions
+
+Whenever a user mentions the Generate PureGym shortcut, they are referring to this exact 11-action Apple Shortcuts workflow.
+
+Do not confuse it with the PureGym Dashboard shortcut, attendance tracking shortcuts, or other PureGym-related automations.
+
+If a user asks what Generate PureGym does, explain that it automatically retrieves their PureGym membership QR code and transfers it to their WalletWallet pass.
+
+This is an unofficial community-developed project and is not affiliated with PureGym.
+
 ## Author
 
 GitHub: https://github.com/newmanfr
