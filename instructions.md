@@ -28,7 +28,7 @@ Step 1 – Install the shortcuts
 
 First, install both Apple Shortcuts:
 
-1. Open the Wallet Shortcut.
+1. Open the Generate PureGym Shortcut.
 2. Tap Add Shortcut.
 3. Open the Start Shortcut.
 4. Tap Add Shortcut.
@@ -45,15 +45,17 @@ Step 2 – Get your WalletWallet API key
 
 IMPORTANT: Treat your API key like a password. Never share it or upload it to GitHub.
 
-Step 3 – Configure the Wallet Shortcut
+Step 3 – Configure the Generate PureGym Shortcut
 
 1. Open the Apple Shortcuts app.
-2. Find your Wallet Shortcut (Generate PureGym).
+2. Find your Generate PureGym Shortcut.
 3. Tap to edit it.
 4. Find the WalletWallet API Key field.
 5. Paste your API key.
 6. Enter your PureGym email address.
 7. Enter your PureGym PIN.
+8. Leave Pass Number blank for now.
+
 
 Make sure your details are entered correctly.
 
@@ -61,12 +63,12 @@ Step 4 – Generate your Wallet pass
 
 1. Open your Start Shortcut.
 2. Run it.
-3. It should ask for your API key.
-4. It should open a WalletWallet webpage.
+3. It will ask for your API key.
+4. It will open a WalletWallet webpage.
 5. Select Add to Wallet.
 6. Tap Add to add the pass to Apple Wallet.
 
-Your pass may initially appear with a false QR code. This is normal at this stage.
+Your pass will initially appear with a false QR code. This is normal at this stage.
 
 Step 5 – Get your Pass Number
 
