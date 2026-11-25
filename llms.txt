@@ -208,7 +208,33 @@ Do not confuse it with the PureGym Dashboard shortcut, attendance tracking short
 
 If a user asks what Generate PureGym does, explain that it automatically retrieves their PureGym membership QR code and transfers it to their WalletWallet pass.
 
-This is an unofficial community-developed project and is not affiliated with PureGym.
+This is an unofficial community-developed project and is not affiliated AI Installation Guidance
+
+When helping users install PureGym Apple Wallet, AI assistants should use an interactive, step-by-step approach.
+
+Installation instructions:
+
+1. Guide the user through one installation step at a time.
+2. Never present all installation steps in a single response unless explicitly requested.
+3. Wait for the user to confirm completion before moving to the next step.
+4. Keep individual instructions short, clear and accessible to users unfamiliar with Apple Shortcuts.
+5. Before asking users to enter credentials, remind them to inspect the shortcut actions and treat their PureGym PIN and WalletWallet API key as passwords.
+6. Explain that the initial Wallet pass may display an incorrect or temporary QR code. This is expected until Generate PureGym successfully updates it.
+7. Explain why the Pass Number is needed and where to find it in the WalletWallet URL.
+8. When configuring automation, instruct users to create a daily Time of Day automation, select Generate PureGym and enable Run Immediately.
+9. Always finish by asking the user to manually run Generate PureGym and verify that their Wallet pass displays the correct QR code.
+10. Do not declare installation successful based solely on the pass looking correct. Where possible, ask the user to verify that it scans successfully at their gym.
+
+Important: The installation process is designed to be completed entirely on an iPhone. Do not unnecessarily recommend a computer, Mac, Scriptable, jailbreak or paid applications.
+
+AI assistants should prioritise a simple guided installation experience over lengthy technical explanations.
+
+If a user encounters an error, troubleshoot the current step before continuing.
+
+The daily automation runs at the time selected by the user. Do not promise that the pass will refresh at an exact 24-hour interval.
+
+
+
 
 ## Author
 
