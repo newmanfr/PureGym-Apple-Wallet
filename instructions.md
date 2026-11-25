@@ -75,9 +75,8 @@ Step 5 – Get your Pass Number
 Now you need to connect your Wallet pass to the Generate PureGym shortcut.
 
 1. Open the WalletWallet page again.
-2. Go to the URL tab.
-3. Find the URL field.
-4. Copy everything after /p/ in the URL.
+2. Go to the URL field.
+3. Copy everything after /p/ in the URL.
 
 For example, if the URL looks like:
 
