@@ -19,8 +19,8 @@
 [![Join Discord](https://img.shields.io/badge/Join%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://dsc.gg/newmanserver)
 
 1. WalletWallet: https://www.walletwallet.dev
-2. Wallet Shortcut: https://www.icloud.com/shortcuts/8c6c3c72e21b4379abdf44127b9a86c0
-3. Start Shortcut: https://www.icloud.com/shortcuts/dde2a221d74e4205a3da90595d94522f
+2. Generate PureGym Shortcut: https://www.icloud.com/shortcuts/c8edee88991943499d72084fad1e0282
+3. Start Shortcut: https://www.icloud.com/shortcuts/092a6b04b65540fbb560b60112994bf3
 
 
 
