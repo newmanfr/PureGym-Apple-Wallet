@@ -26,6 +26,9 @@ Quick disclaimer: Right now only the UK 🇬🇧 is confirmed to work. If your r
 3. Start Shortcut: https://www.icloud.com/shortcuts/dde2a221d74e4205a3da90595d94522f
 
 
+[![Join Discord](https://img.shields.io/badge/Join%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://dsc.gg/newmanserver)
+
+
 Step 1 – Install the shortcuts
 
 First, install both Apple Shortcuts:
